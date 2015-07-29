@@ -60,6 +60,7 @@ webapp.post("/", function(req, res) {
 	};
 
 	fs.writeFileSync("./toxRecords.json", JSON.stringify(toxRecords));
+	console.log(uname + "has registered or modified ID correctly!");
 	res.redirect("/success.html");
 });
 
