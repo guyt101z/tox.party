@@ -14,5 +14,10 @@
   "license": "AGPLv3",
   "bugs": {
     "url": "https://github.com/installgen2/tox.party/issues"
+  },
+  "dependencies": {
+    "node-named": "0.0.1",
+    "express": "~4.13.1",
+    "body-parser": "~1.13.2"
   }
 }
