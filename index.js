@@ -35,7 +35,7 @@ webapp.post("/", function(req, res) {
 	}
 
 	// shorten var names
-	uname = req.body.uname;
+	uname = req.body.uname.toLowerCase();
 	addr = req.body.addr;
 	pass = req.body.pass;
 
@@ -60,7 +60,7 @@ webapp.post("/", function(req, res) {
 	};
 
 	fs.writeFileSync("./toxRecords.json", JSON.stringify(toxRecords));
-	console.log(uname + "has registered or modified ID correctly!");
+	console.log(uname + " has registered or modified ID correctly!");
 	res.redirect("/success.html");
 });
 
@@ -69,7 +69,7 @@ dnsServer.listen(53, "", console.log("Listening..."));
 dnsServer.on("query", function(query) {
 	var name = query.name();
 	var type = query.type();
-	var username = name.split("._tox")[0];
+	var username = name.toLowerCase().split("._tox")[0];
 
 	console.log("Request for: " + username);
 
