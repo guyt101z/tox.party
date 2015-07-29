@@ -41,7 +41,7 @@ webapp.post("/", function(req, res) {
 
 	// Check that params are valid
 	if (uname.length >= 20 || addr.length != 76 || uname.match(/[^A-Za-z0-9_\.]/) || addr.match(/\W/)) {
-		console.log("Invalid username or password!");
+		console.log("Invalid username or address!");
 		console.log("...Username is: " + uname);
 		console.log("...Address is: " + addr);
 		return res.redirect("/errors/invalid.html");
