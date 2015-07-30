@@ -17,11 +17,13 @@ body > h2 {
 }
 
 .main form > input {
-	width: 300px;
+	max-width: 300px;
+	width: 90%;
 	margin: 15px auto;
 }
 .main form > div {
-	width: 300px;
+	max-width: 300px;
+	width: 90%;
 	margin: 15px auto;
 }
 .main form > button {
