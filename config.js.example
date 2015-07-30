@@ -1,0 +1,7 @@
+var config = {
+	name: "Shit Name",
+	tags: ["put dumb shit here", "or less dumb shit", "who cares"],
+	domain: "your.domain"
+};
+
+module.exports = config;
