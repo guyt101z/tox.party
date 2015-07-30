@@ -19,6 +19,7 @@
     "node-named": "0.0.1",
     "express": "~4.13.1",
     "body-parser": "~1.13.2",
-    "swig": "~1.4.2"
+    "swig": "~1.4.2",
+    "password-hash": "~1.2.2"
   }
 }

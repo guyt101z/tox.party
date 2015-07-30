@@ -15,6 +15,7 @@ webapp.use(bodyParser.urlencoded({extended: true}));
 
 // Other stuff
 var fs = require("fs"),
+	passwordHash = require("password-hash"),
 	config = require("./config.js");
 
 // Startup
@@ -31,6 +32,7 @@ function generatePage(file, data) {
 	if (!data) data = {};
 
 	var tag = config.tags[Math.floor(Math.random() * config.tags.length)];
+	data.domain = config.domain;
 	data.name = config.name;
 	data.tag = tag;
 
@@ -72,15 +74,16 @@ webapp.post("/", function(req, res) {
 	}
 
 	// check to see if registered and if so, check password
-	if (toxRecords[uname] != undefined && pass != toxRecords[uname].pass) {
-		console.log("Incorrect password, tried \"" + pass + "\", correct is \"" + toxRecords[uname].pass + "\"");
+	if (toxRecords[uname] != undefined && passwordHash.verify(pass, toxRecords[uname].pass) == false) {
+		console.log("...Input bassword hash: " + passwordHash.generate(pass));
+		console.log("...Saved bassword hash: " + toxRecords[uname].pass);
 		return res.send(generatePage("error", { error: "Incorrect password!" }));
 	};
 
 	// All good, set user and send user to success page
 	toxRecords[uname] = {
 		addr: addr,
-		pass: pass
+		pass: passwordHash.generate(pass)
 	};
 
 	fs.writeFileSync("./toxRecords.json", JSON.stringify(toxRecords));
