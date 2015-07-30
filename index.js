@@ -74,12 +74,12 @@ dnsServer.on("query", function(query) {
 	console.log("Request for: " + username);
 
 	if (type == "TXT" && toxRecords[username]) {
+		console.log("...Resolved to: " + toxRecords[username].addr);
+		
 		var record = new named.TXTRecord("v=tox1;id=" + toxRecords[username].addr);
 		query.addAnswer(name, record, 60);
-		console.log("...Resolved to: " + toxRecords[username].addr);
+		dnsServer.send(query);
 	} else {
 		console.log("...Not found :(");
 	}
-
-	dnsServer.send(query);
 });
