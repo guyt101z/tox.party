@@ -26,9 +26,24 @@
 
 			<input type="text" name="addr" class="form-control" placeholder="Tox address">
 			<input type="password" name="pass" class="form-control" placeholder="Password">
-			<button class="btn">Register or edit user</button>
+
+			<select name="action" class="form-control">
+				<option value="reg">Register account</option>
+				<option value ="regTemp">Register temporary (24hr) account</option>
+				<option value ="edit">Edit account</option>
+				<option value ="del">Delete account</option>
+			</select>
+
+			<button class="btn">Go!</button>
 		</form>
 	</div>
+
+	<footer>
+		<a href="/about">About</a>
+		{% for key, val in footerLinks %}
+			- <a href="{{ val[0] }}">{{ val[1] }}</a>
+		{% endfor %}
+	</footer>
 
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>

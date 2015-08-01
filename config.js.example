@@ -2,6 +2,12 @@ var config = {
 	name: "Shit Name",
 	tags: ["put dumb shit here", "or less dumb shit", "who cares"],
 	domain: "your.domain"
+
+	footerLinks: [
+		["https://example.com", "Put your"],
+		["https://example.com", "Shit links"],
+		["https://example.com", "Here"],
+	]
 };
 
 module.exports = config;

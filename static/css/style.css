@@ -16,18 +16,18 @@ body > h2 {
 	box-shadow: 0 3px 6px #ccc;
 }
 
-.main form > input {
+.main > * {
 	max-width: 300px;
 	width: 90%;
-	margin: 15px auto;
-}
-.main form > div {
-	max-width: 300px;
-	width: 90%;
-	margin: 15px auto;
-}
-.main form > button {
 	margin: auto;
-	display: block;
 }
 
+form > * {
+	margin: 15px auto;
+}
+
+footer {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}

@@ -19,8 +19,25 @@
 
 	<div class="main">
 		<h3>Success!</h3>
-		<p>Your ID is {{ fullId }}</p>
+		{% if type == "reg" %}
+			<p>Your ID is {{ ID }}</p>
+		{% elseif type == "regTemp" %}
+			<p>Your ID is {{ ID }}</p>
+			<p>your account will be deleted automatically in 24hours</p>
+		{% elseif type == "edit" %}
+			<p>{{ ID }}'s ID changed to {{ addr }}</p>
+		{% elseif type == "del" %}
+			<p>{{ ID }} unregistered/deleted successfully</p>
+		{% endif %}
+		
 	</div>
+
+	<footer>
+		<a href="/">Home</a>
+		{% for key, val in footerLinks %}
+			- <a href="{{ val[0] }}">{{ val[1] }}</a>
+		{% endfor %}
+	</footer>
 
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>
